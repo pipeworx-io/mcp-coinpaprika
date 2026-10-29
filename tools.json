@@ -1,0 +1,105 @@
+[
+  {
+    "name": "list_coins",
+    "description": "All ~25k tracked coins — id, name, symbol, rank, is_active.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_coin",
+    "description": "Full coin profile — description, team, links, tags.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "coin_id": {
+          "type": "string",
+          "description": "Coinpaprika id (e.g. \"btc-bitcoin\")"
+        }
+      },
+      "required": [
+        "coin_id"
+      ]
+    }
+  },
+  {
+    "name": "tickers_latest",
+    "description": "Latest price + market cap + volume. Without coin_id returns all tickers; with coin_id returns one.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "coin_id": {
+          "type": "string"
+        },
+        "quotes": {
+          "type": "string",
+          "description": "Comma-sep quote currencies — USD,BTC,ETH,EUR,GBP,JPY (default USD)"
+        }
+      }
+    }
+  },
+  {
+    "name": "historical_ohlc",
+    "description": "Daily OHLC + volume + market cap for a coin. Defaults to the last 30 days when no date range is supplied. Free tier: up to 1 year back.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "coin_id": {
+          "type": "string",
+          "description": "coinpaprika coin ID (e.g. \"btc-bitcoin\", \"eth-ethereum\")"
+        },
+        "start": {
+          "type": "string",
+          "description": "YYYY-MM-DD or unix timestamp. Optional — defaults to 30 days ago."
+        },
+        "end": {
+          "type": "string",
+          "description": "YYYY-MM-DD or unix timestamp (optional, defaults to now)."
+        },
+        "limit": {
+          "type": "number",
+          "description": "1-365 daily candles (default 30)."
+        },
+        "quote": {
+          "type": "string",
+          "description": "usd | btc (default usd)"
+        }
+      },
+      "required": [
+        "coin_id"
+      ]
+    }
+  },
+  {
+    "name": "global_market",
+    "description": "Total market cap, 24h volume, BTC dominance, active currencies.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "search",
+    "description": "Fuzzy search Coinpaprika across coins, exchanges, ICOs, people, and tags by free-text query; returns up to 250 results with id, name, symbol, and rank.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "modifier": {
+          "type": "string",
+          "description": "symbol_search to search by ticker"
+        },
+        "limit": {
+          "type": "number",
+          "description": "1-250 (default 6)"
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  }
+]

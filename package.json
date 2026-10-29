@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-coinpaprika",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Coinpaprika MCP — alternative crypto data source",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-coinpaprika": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "coinpaprika"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-coinpaprika.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/coinpaprika",
   "pipeworx": {
-    "sourceHash": "v1-4af560cfcb3d539faf571517934af28f8d535c537ac220b94539138aa43ec248",
-    "sourceCommit": "f1ef7a2f6b9cb1b8da1374ec2fcb28c661582b35"
+    "mode": "gateway",
+    "slug": "coinpaprika",
+    "gatewaySlug": "coinpaprika",
+    "sourceHash": "v1-6a34d3ee1ee12f3473735ffaab8d9eed91ce71ee0bad19ad5f3cdd00f812faeb",
+    "sourceCommit": "4277282d72f9bf55e548b3799aaf737baf22152f"
   }
 }
