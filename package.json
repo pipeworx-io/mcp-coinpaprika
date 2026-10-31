@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-coinpaprika",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Coinpaprika MCP — alternative crypto data source",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "coinpaprika",
     "gatewaySlug": "coinpaprika",
-    "sourceHash": "v1-6a34d3ee1ee12f3473735ffaab8d9eed91ce71ee0bad19ad5f3cdd00f812faeb",
-    "sourceCommit": "4277282d72f9bf55e548b3799aaf737baf22152f"
+    "sourceHash": "v1-d46779c336866593c5883c5a41f68adef6539e064fa242aa01e3129c8ccb2745",
+    "sourceCommit": "8cc978183948532674e797c429305c9d8ab2a1c3"
   }
 }
